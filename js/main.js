@@ -25,13 +25,22 @@ function createElement(obj) {
       
       elList.innerHTML = itemHtml + elList.innerHTML;
 
-      let subtotal = document.querySelector('subtotal__txt');
-      let tax = document.querySelector('subtotal__tax');
-      let total = document.querySelector('subtotal__tot');
+      let tax = 0;
+      let subtotal = 0;
+      let total = price.textContent.slice(1,);
+      tax = tax + total * 0.13;
+      subtotal = subtotal + +(total);
+      total = tax + subtotal;
+    
+      let elSubtotal = document.querySelector(".subtotal__txt");
+      let elTax = document.querySelector(".subtotal__tax");
+      let elTotal = document.querySelector(".subtotal__tot");
 
-      subtotal = price.textContent;
-
-      console.log(price.textContent, subtotal);
+      elSubtotal.innerHTML = `$${subtotal.toFixed(2)}`;
+      elTax.innerHTML = `$${tax.toFixed(2)}`;
+      elTotal.innerHTML = `$${total.toFixed(2)}`;
+   
+      console.log(subtotal, tax, total);
    }
 }
 
